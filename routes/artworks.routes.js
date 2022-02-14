@@ -31,4 +31,17 @@ router.get("/", (req, res, next) => {
 
 });
 
+// ARTWORK INFO
+
+router.get('/artwork/:id', (req, res, next) => {
+    const { id } = req.params
+
+    API
+        .getSingleArt(id)
+        .then(data => {
+            res.render('artworks/artwork-info', { data })
+        })
+        .catch(error => next(error))
+})
+
 module.exports = router;

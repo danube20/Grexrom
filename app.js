@@ -12,7 +12,7 @@ require("./config")(app);
 require('./config/session.config')(app)
 
 // ROUTES
-app.use("/", require("./routes/index.routes"))
+app.use("/", require("./routes/artworks.routes"))
 
 app.use('/', require('./routes/auth.routes'))
 
