@@ -2,11 +2,11 @@
     <form action="/login" method="POST">
         <div class="mb-3">
             <label for="usernameInput" class="form-label">Username</label>
-            <input type="text" class="form-control" id="usernameInput" name="username">
+            <input required type="text" class="form-control" id="usernameInput" name="username">
         </div>
         <div>
             <label for="pwdInput" class="form-label">Password</label>
-            <input type="password" class="form-control" id="pwdInput" name="password">
+            <input required type="password" class="form-control" id="pwdInput" name="userPassword">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

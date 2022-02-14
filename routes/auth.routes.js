@@ -1,23 +1,23 @@
-const router = require("express").Router
-const bcryptjs = require("bcryptjs")
-
+const router = require("express").Router()
+const bcrypt = require('bcryptjs')
 const User = require("./../models/User.model")
 const rounds = 10
 
 //registro
-router.get("/register", (req, res, next) => res.render("auth/resgister-form"))
+router.get("/register", (req, res, next) => res.render("auth/register-form"))
 
 router.post("/register", (req, res, next) => {
 
-    const { email, username, userPassword } = req.body
+    const { userPassword } = req.body
 
-    bcryptjs
+    bcrypt
         .genSalt(rounds)
-        .then(salt => bcryptjs.hash(userPassword, salt))
-        .then(hashPassword => {
-            return User.create({ email, username, password: hashPassword })
+        .then(salt => bcrypt.hash(userPassword, salt))
+        .then(hashedPassword => User.create({ ...req.body, userPassword: hashedPassword }))
+        .then(createdUser => {
+            console.log('NEW USER ==>', createdUser)
+            res.redirect("/login")
         })
-        .then(() => res.redirect("/login"))
         .catch(error => next(error))
 })
 
@@ -27,19 +27,14 @@ router.post("/login", (req, res, next) => {
 
     const { username, userPassword } = req.body
 
-    if (email.length === 0 || userPassword.length === 0) {
-        res.render("auth/resgister-form", { errorMessage: "Rellena todos los campos" })
-        return
-    }
-
     User
-        .findOne({ email })
+        .findOne({ username })
         .then(user => {
             if (!user) {
-                res.render("/auth/login-form", { errorMessage: "Email no registrado" })
+                res.render("auth/login-form", { errorMessage: "Usuario no registrado" })
                 return
-            } else if (bcryptjs.compareSync(userPassword, hashPassword) === false) {
-                res.render("/auth/login-form", { errorMessage: "Contraseña incorrecta" })
+            } else if (bcrypt.compareSync(userPassword, user.userPassword) === false) {
+                res.render("auth/login-form", { errorMessage: "Contraseña incorrecta" })
                 return
             } else {
                 req.session.currentUser = user
@@ -48,3 +43,5 @@ router.post("/login", (req, res, next) => {
         })
         .catch(error => next(error))
 })
+
+module.exports = router
