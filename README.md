@@ -9,4 +9,4 @@
 | GET          | /info/:Id          | Art work info                              |True            |
 | POST          | /info/:Id         | Add new comment                            |True            |
 | GET          | /profile           | User info(user data, favorite artwork)     | True           |
-| POST         | /profile           | add new user info                          | True           |
+| POST         | /profile           | Add new user info                          | True           |
