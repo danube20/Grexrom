@@ -2,10 +2,11 @@
 
 | HTTP Method | URI path            | Description                                |      Protected |
 | :---         |   :---:            |          ---:                              |           ---: |
-| GET          | /                  | Render index page and search               |                |
-| GET          | /registro          | Render register page                       |                |
-| POST         | /registro          | Handle register page                       |                |
-| GET          | /login             | Login page                                 |                |
-| GET          | /info/:ID          | Art work info                              |comment section |
-| GET          | /profile           | User info(user data, favorite artwork)     | all page       |
-| POST         | /profile           | add new user info                          | all page       |
+| GET          | /                  | Render index page and search               |      False     |
+| GET          | /registro          | Render register page                       |        False   |
+| POST         | /registro          | Handle register page                       |      False     |
+| GET          | /login             | Login page                                 |      False     |
+| GET          | /info/:Id          | Art work info                              |True            |
+| POST          | /info/:Id         | Add new comment                            |True            |
+| GET          | /profile           | User info(user data, favorite artwork)     | True           |
+| POST         | /profile           | add new user info                          | True           |
