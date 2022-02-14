@@ -15,7 +15,7 @@ const userSchema = new Schema(
             lowercase: true,
             trim: true
         },
-        password: {
+        userPassword: {
             type: String,
             required: true
         },
@@ -26,10 +26,6 @@ const userSchema = new Schema(
         },
         favs: {
             type: [String]
-        },
-        user: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
         },
         biography: {
             type: String,
