@@ -24,9 +24,18 @@ const userSchema = new Schema(
             enum: ['USER', 'ADMIN'],
             default: 'USER'
         },
-        // favs: {
-        //     type: id de la api
-        // }
+        favs: {
+            type: [String]
+        },
+        user: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        },
+        biography: {
+            type: String,
+            maxlength: 200
+        },
+        imgUrl: String
     },
     {
         timestamps: true

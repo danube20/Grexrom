@@ -13,3 +13,5 @@ const profileSchema = new Schema(
         imgUrl: String,
     }
 )
+
+module.exports = model('Profile', profileSchema)

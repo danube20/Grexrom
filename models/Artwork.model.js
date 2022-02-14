@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const museumSchema = new Schema(
+const artworkSchema = new Schema(
   {
     objectID: Number,
     primaryImage: String,
@@ -14,4 +14,4 @@ const museumSchema = new Schema(
   }
 );
 
-module.exports = model("Museum", museumSchema)
+module.exports = model("Artwork", artworkSchema)
