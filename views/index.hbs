@@ -1,14 +1,13 @@
-{{#each data}}
+{{#each filteredArtwoksInfo}}
 <div class="card" style="width: 18rem;">
-    <p>{{data.data.objectID}}</p>
-    <img src="{{data.data.primaryImage}}" class="card-img-top" alt="{{data.data.title}}">
+    <p>{{id}}</p>
+    <img src="{{image}}" class="card-img-top" alt="{{title}}">
     <div class="card-body">
-        <h5 class="card-title">{{data.data.title}}</h5>
-        <p class="card-text">{{data.data.period}}</p>
+        <h5 class="card-title">{{title}}</h5>
+        <p class="card-text">{{period}}</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
 </div>
-
 {{/each}}
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

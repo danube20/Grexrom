@@ -10,8 +10,8 @@ class APIHandler {
     getSingleArt(artId) {
         return this.axiosApp.get(`/objects/${artId}`)
     }
-    getFilterArt() {
-        return this.axiosApp.get('/search?departmentId=13&hasImages=true&q=a')
+    getFilteredArt() {
+        return this.axiosApp.get('/search?departmentId=13&hasImages=true&q=ac')
     }
 }
 
