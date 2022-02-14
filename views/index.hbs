@@ -1,6 +1,15 @@
 {{#each data}}
-<p>{{objectID}}</p>
-<img src="{{primaryImage}}" alt="{{title}}">
-<p>{{title}}</p>
-<p>{{period}}</p>
+<div class="card" style="width: 18rem;">
+    <p>{{data.data.objectID}}</p>
+    <img src="{{data.data.primaryImage}}" class="card-img-top" alt="{{data.data.title}}">
+    <div class="card-body">
+        <h5 class="card-title">{{data.data.title}}</h5>
+        <p class="card-text">{{data.data.period}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>
+
 {{/each}}
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="/js/APIHandler.js"></script>
