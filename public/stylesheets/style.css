@@ -14,7 +14,7 @@ body {
   margin: 1rem 1rem;
 }
 
-.card-img-top {
+.card img {
   height: 250px;
   object-fit: cover;
 }

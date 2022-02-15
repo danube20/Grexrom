@@ -39,7 +39,7 @@ router.get('/artwork/:id', (req, res, next) => {
     API
         .getSingleArt(id)
         .then(data => {
-            res.render('artworks/artwork-info', { data })
+            res.render('artworks/artwork-info', data)
         })
         .catch(error => next(error))
 })
