@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const APIHandler = require("../services/APIHandler")
 const API = new APIHandler()
+const { isLoggedIn, checkRole } = require('../middlewere/route-guard')
+const Comments = require('../models/Comment.model')
 
 
 // INDEX PAGE
@@ -33,14 +35,32 @@ router.get("/", (req, res, next) => {
 
 // ARTWORK INFO
 
-router.get('/artwork/:id', (req, res, next) => {
+router.get('/artwork/:id', isLoggedIn, (req, res, next) => {
     const { id } = req.params
+
+    let artwork = {}
 
     API
         .getSingleArt(id)
         .then(data => {
-            res.render('artworks/artwork-info', data)
+            artwork = data.data
+            return Comments.find().populate('user')
         })
+        .then(comments => {
+            artwork.comments = comments
+            res.render('artworks/artwork-info', artwork)
+        })
+        .catch(error => next(error))
+})
+
+router.post('/artwork/:id', (req, res, next) => {
+    const { id } = req.params
+    // const userId = req.session.currentUser._id
+    const { rating, text, user } = req.body
+
+    Comments
+        .create({ rating, text, user, artwork: id })
+        .then(() => res.redirect(`/artwork/${id}`))
         .catch(error => next(error))
 })
 

@@ -6,16 +6,19 @@ const commentSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
+        artwork: {
+            type: String
+        },
         rating: {
             type: Number,
             min: 1,
             max: 5
         },
-        commentDate: {
+        date: {
             type: Date,
             default: Date.now
         },
-        commentary: {
+        text: {
             type: String,
             required: true,
             maxlength: 250
