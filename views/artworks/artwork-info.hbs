@@ -13,12 +13,16 @@
 </form>
 
 <br>
-
+{{#if objectID}}
 {{#each comments}}
-<p>{{username}}</p>
+<hr>
+<p>{{artwork}}</p>
+<p>{{user.username}}</p>
 <p>{{date}}</p>
 <p>{{text}}</p>
+<hr>
 {{/each}}
+{{/if}}
 
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
