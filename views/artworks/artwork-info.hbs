@@ -1,10 +1,24 @@
-{{#with data}}
+<img src="{{primaryImageSmall}}" class="card-img-top" alt="{{data.title}}">
+<h3>Name: {{objectName}}</h3>
+<h3>Title: {{title}}</h3>
+<h3>Period: {{period}}</h3>
+<h3>Object date: {{objectDate}}</h3>
+<h3>Dimensions: {{dimensions}}</h3>
 
-<img src="{{primaryImageSmall}}" class="card-img-top" alt="{{title}}">
-<p>{{objectName}}</p>
-<p>{{title}}</p>
-<p>{{period}}</p>
-{{/with}}
+<form action="/artwork/{{objectID}}" method="POST">
+    <label for="commentBox">Añadir comentario:</label><br>
+    <textarea name="text" id="commentBox" cols="30" rows="10" placeholder="Add new commentary"></textarea>
+    <br>
+    <button type="submit">Submit</button>
+</form>
+
+<br>
+
+{{#each comments}}
+<p>{{username}}</p>
+<p>{{date}}</p>
+<p>{{text}}</p>
+{{/each}}
 
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
