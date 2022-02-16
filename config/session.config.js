@@ -20,5 +20,5 @@ module.exports = app => {
                 mongoUrl: process.env.MONGODB_URI
             })
         })
-    );
-};
+    )
+}

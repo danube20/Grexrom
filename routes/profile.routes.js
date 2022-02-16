@@ -1,5 +1,6 @@
 const { isLoggedIn } = require('../middlewere/route-guard')
 const User = require('../models/User.model')
+const fileUploader = require('../config/cloudinary.config')
 
 const router = require('express').Router()
 
@@ -20,12 +21,7 @@ router.get('/profile/:username', isLoggedIn, (req, res, next) => {
     User
         .findOne({ username })
         .then(data => {
-            if (!data) {
-                res.render('user/user-not-found')
-            }
-            else {
-                res.render('user/user-profile', data)
-            }
+            !data ? res.render('user/user-not-found') : res.render('user/user-profile', data)
         })
         .catch(error => next(error))
 })
@@ -40,12 +36,16 @@ router.get('/profile/:username/edit-info', isLoggedIn, (req, res, next) => {
 
 })
 
-router.post('/profile/:username/edit-info', isLoggedIn, (req, res, next) => {
+router.post('/profile/:username/edit-info', fileUploader.single('imgUrl'), isLoggedIn, (req, res, next) => {
     const { username } = req.params
+    const { fullName, biography } = req.body
 
     User
-        .findOneAndUpdate({ username }, req.body)
-        .then(() => res.redirect(`/profile/${username}`))
+        .findOneAndUpdate({ username }, { fullName, biography, imgUrl: req.file.path })
+        .then(data => {
+            console.log(data)
+            res.redirect(`/profile/${username}`)
+        })
         .catch(error => next(error))
 })
 

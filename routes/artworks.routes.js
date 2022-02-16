@@ -8,7 +8,6 @@ let prevPage = 0
 let nextPage = 0
 
 // INDEX PAGE
-
 router.get('/', (req, res, next) => {
     API
         .getMoreImportant()
@@ -30,7 +29,6 @@ router.get('/', (req, res, next) => {
             res.render('artworks/index-carrousel', { filteredArtwoksInfo })
         })
         .catch(err => next(err))
-
 })
 
 // ARTWORKS LIST
@@ -100,14 +98,11 @@ router.get("/artworks", (req, res, next) => {
             res.render('artworks/index-page', { filteredArtwoksInfo })
         })
         .catch(err => next(err))
-
-
-
-});
+})
 
 // ARTWORK INFO
-
 router.get('/artwork/:id', isLoggedIn, (req, res, next) => {
+
     const { id } = req.params
 
     let artwork = {}
@@ -127,7 +122,7 @@ router.get('/artwork/:id', isLoggedIn, (req, res, next) => {
 
 router.post('/artwork/:id', (req, res, next) => {
     const { id } = req.params
-    const userId = req.session.currentUser._id
+    const { _id: userId } = req.session.currentUser
     const { rating, text } = req.body
 
     Comments

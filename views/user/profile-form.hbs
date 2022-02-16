@@ -1,8 +1,8 @@
 <div class="container">
-    <form action='/profile/:username/edit-info' method="POST">
+    <form action='/profile/{{username}}/edit-info' method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="ProfInput" class="form-label">Profile image</label>
-            <input type="file" class="form-control" id="ProfInput" name="profileImg" value="{{profileImg}}">
+            <input type="file" class="form-control" id="ProfInput" name="imgUrl" value="{{profileImg}}">
         </div>
         <div class="mb-3">
             <label for="fullNameInput" class="form-label">Full name</label>
