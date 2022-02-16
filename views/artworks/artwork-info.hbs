@@ -9,6 +9,9 @@
     <label for="commentBox">Añadir comentario:</label><br>
     <textarea name="text" id="commentBox" cols="30" rows="10" placeholder="Add new commentary"></textarea>
     <br>
+    <label for="ratingSelect">Let a rating</label>
+    <input type="number" name="rating" min="1" max="5">
+    <br>
     <button type="submit">Submit</button>
 </form>
 
@@ -19,6 +22,7 @@
 <p>{{artwork}}</p>
 <p>{{user.username}}</p>
 <p>{{date}}</p>
+<p>{{rating}}</p>
 <p>{{text}}</p>
 <hr>
 {{/each}}
