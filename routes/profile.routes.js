@@ -40,4 +40,13 @@ router.get('/profile/:username/edit-info', isLoggedIn, (req, res, next) => {
 
 })
 
+router.post('/profile/:username/edit-info', isLoggedIn, (req, res, next) => {
+    const { username } = req.params
+
+    User
+        .findOneAndUpdate({ username }, req.body)
+        .then(() => res.redirect(`/profile/${username}`))
+        .catch(error => next(error))
+})
+
 module.exports = router
