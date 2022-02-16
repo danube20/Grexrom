@@ -1,20 +1,16 @@
 <div class="container">
-    <form action='/profile' method="POST">
+    <form action='/profile/:username/edit-info' method="POST">
         <div class="mb-3">
             <label for="ProfInput" class="form-label">Profile image</label>
-            <input type="file" class="form-control" id="ProfInput" name="profileImg">
+            <input type="file" class="form-control" id="ProfInput" name="profileImg" value="{{profileImg}}">
         </div>
         <div class="mb-3">
             <label for="fullNameInput" class="form-label">Full name</label>
-            <input type="text" class="form-control" id="fullNameInput" name="fullName">
-        </div>
-        <div class="mb-3">
-            <label for="usernameInput" class="form-label">Username</label>
-            <input type="text" class="form-control" id="usernameInput" name="username">
+            <input type="text" class="form-control" id="fullNameInput" name="fullName" value="{{fullName}}">
         </div>
         <div class="mb-3">
             <label for="bioInput" class="form-label">Biography</label>
-            <textarea type="text" class="form-control" id="bioInput" name="biography"></textarea>
+            <input type="text" class="form-control" id="bioInput" name="biography" value="{{biography}}">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

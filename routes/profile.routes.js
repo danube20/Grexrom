@@ -30,4 +30,14 @@ router.get('/profile/:username', isLoggedIn, (req, res, next) => {
         .catch(error => next(error))
 })
 
+router.get('/profile/:username/edit-info', isLoggedIn, (req, res, next) => {
+    const { username } = req.params
+
+    User
+        .findOne({ username })
+        .then(data => res.render('user/profile-form', data))
+        .catch(error => next(error))
+
+})
+
 module.exports = router

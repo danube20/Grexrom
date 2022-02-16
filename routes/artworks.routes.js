@@ -5,7 +5,7 @@ const { isLoggedIn, checkRole } = require('../middlewere/route-guard')
 const Comments = require('../models/Comment.model')
 
 let prevPage = 0
-let nextPage = 12
+let nextPage = 0
 
 // INDEX PAGE
 
@@ -38,7 +38,44 @@ router.get("/artworks", (req, res, next) => {
 
     // /artworks?page=3
 
-    // const { page } = req.query
+    const { page } = req.query
+
+    switch (page) {
+        case '1':
+            prevPage = 0
+            nextPage = 12
+            break;
+        case '2':
+            prevPage = 12
+            nextPage = 24
+            break;
+        case '3':
+            prevPage = 24
+            nextPage = 36
+            break;
+        case '4':
+            prevPage = 36
+            nextPage = 48
+            break;
+        case '5':
+            prevPage = 48
+            nextPage = 60
+            break;
+        case '6':
+            prevPage = 60
+            nextPage = 72
+            break;
+        case '7':
+            prevPage = 72
+            nextPage = 84
+            break;
+        case '8':
+            prevPage = 84
+            nextPage = 96
+            break;
+        default:
+            break;
+    }
 
     API
         .getFilteredArt()
