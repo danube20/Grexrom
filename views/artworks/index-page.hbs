@@ -1,15 +1,17 @@
-<div class="index-container justify-content-center">
-    {{#each filteredArtwoksInfo}}
-    <div class="card" style="width: 18rem;">
-        <p>{{id}}</p>
-        <img src="{{image}}" class="card-img-top" alt="{{title}}">
-        <div class="card-body">
-            <h5 class="card-title">{{title}}</h5>
-            <p class="card-text">{{period}}</p>
-            <a href="/artwork/{{id}}" class="btn btn-primary">Go somewhere</a>
+<div class="index-container">
+    <div class="row justify-content-center">
+        {{#each filteredArtwoksInfo}}
+        <div class="card col-md-3" style="width: 18rem;">
+            <p>{{id}}</p>
+            <img src="{{image}}" class="card-img-top" alt="{{title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{period}}</p>
+                <a href="/artwork/{{id}}" class="btn btn-primary">Go somewhere</a>
+            </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
 </div>
 
 {{!-- <div class="prevNext">
