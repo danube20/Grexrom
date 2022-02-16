@@ -3,12 +3,13 @@
 | HTTP Method | URI path                    | Description                                |      Protected |
 | :---         |   :---:                    |          ---:                              |           ---: |
 | GET          | /                          | Render index page and search               |      False     |
-| GET          | /register                  | Render register page                       |        False   |
+| GET          | /artworks                  |Render all artworks items                   |      False     |
+| GET          | /register                  | Render register page                       |      False   |
 | POST         | /register                  | Handle register page                       |      False     |
 | GET          | /login                     | Render login page                          |      False     |
 | POST         | /login                     | Handle login page                          |      False     |
-| GET          | /info/:Id                  | Art work info                              |True            |
-| POST         | /info/:Id                  | Add new comment                            |True            |
+| GET          | /artwork/:id               | Art work info                              |      True            |
+| POST         | /artwork/:id               | Add new comment                            |      True            |
 | GET          | /profile/:username         | User info(user data, favorite artwork)     | True           |
-| POST         | /profile/:username         | Add new user info                          | True           |
-
+| GET          | /profile/:username/edit-info         |Render a form with user info           | True           |
+| POST         | /profile/:username/edit-info         | Add/ edit user info                          | True           |
