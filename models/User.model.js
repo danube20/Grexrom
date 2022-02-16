@@ -6,14 +6,16 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             required: true,
-            trim: true
+            trim: true,
+            maxlength: 10
         },
         email: {
             type: String,
             required: [true, 'Indica el email.'],
             unique: true,
             lowercase: true,
-            trim: true
+            trim: true,
+            validate: /^\S+@\S+\.\S+$/
         },
         userPassword: {
             type: String,
@@ -30,6 +32,11 @@ const userSchema = new Schema(
         biography: {
             type: String,
             maxlength: 200
+        },
+        fullName: {
+            type: String,
+            maxlength: 50,
+            validate: /[a-z]/gis
         },
         imgUrl: {
             type: String,
