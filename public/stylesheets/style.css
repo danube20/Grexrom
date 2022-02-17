@@ -15,6 +15,15 @@
 /* LOGIN AND REGISTER */
 .loginForm {
   padding-top: 8rem;
+  height: 87.4vh;
+}
+
+.loginForm h1 {
+  margin-bottom: 4rem;
+}
+
+.loginForm>form>button {
+  margin-top: 2rem;
 }
 
 /* NAVBAR */
@@ -40,6 +49,7 @@
 
 .navBtn {
   font-size: 1.2em;
+  margin-right: 1.5rem;
 }
 
 .navbar-brand {
@@ -76,7 +86,7 @@
 .card img {
   height: 350px;
   width: 288px;
-  margin-left: -13px;
+  margin-left: -1px;
   margin-top: -1px;
   object-fit: cover;
   object-position: top;
@@ -108,7 +118,6 @@
 
 .indexBg {
   background-color: #9b9b9b;
-  /* overflow-x: hidden; */
 }
 
 .bg-card-color {
@@ -140,7 +149,57 @@
   border-color: #737373;
 }
 
-/* EVENT PAGE MAP */
+/* EXPO PAGE */
+.artworkExpoBody {
+  background-color: #9b9b9b;
+}
+
+.artworksExpo {
+  margin-top: 4rem;
+}
+
+.sideText {
+  padding: 0 3rem;
+}
+
+.sideText h4 {
+  color: #727272;
+}
+
+.sideText p {
+  font-weight: 300;
+  color: white;
+}
+
+.sideText span {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: black;
+}
+
+.floatRight {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 3rem 0;
+}
+
+.floatRight>div {
+  text-align: right;
+}
+
+.floatLeft {
+  display: flex;
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.hrExpo {
+  width: 50%;
+  margin: 0 auto;
+  border-top: 5px solid black;
+}
+
 .expoImg0 {
   height: 500px;
   width: 500px;
@@ -154,19 +213,8 @@
   object-position: center;
 }
 
-.floatRight {
-  width: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.floatLeft {
-  display: flex;
-}
-
 #myMap {
-  height: 450px;
+  height: 600px;
 }
 
 /* ARTWORK INFO */
@@ -176,6 +224,7 @@
 
 .artwork-info {
   padding-top: 6rem;
+  margin-bottom: 4rem;
 }
 
 .artworkDesc {
@@ -195,20 +244,77 @@
 }
 
 /* FOOTER */
-
 .pie {
-  padding: 40px 0 0 0;
   background-color: #232628;
   text-align: center;
-  position: static
+  color: #9d9d9d;
+  font-weight: 200;
+}
 
+.pie nav {
+  margin: 0 0 1rem 0;
+}
+
+.pie nav a {
+  text-decoration: none;
+  color: #9d9d9d;
+  transition: .3s ease-in-out;
+  margin-left: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid #9d9d9d;
+}
+
+.pie nav a:hover {
+  color: #e3e2e2;
+}
+
+.pie nav a:last-child {
+  border: none;
+  padding-right: 0;
+}
+
+.pieP {
+  margin: 0;
+  padding-bottom: 16px;
 }
 
 .footer-items {
-  margin-top: 40px;
-  padding: 40px 0 0 0;
-  background-color: #737373;
-  text-align: center;
-  position: static;
+  color: white;
+  background-color: #2d2d2d;
+  height: 88vh;
+}
 
+.footer-items section {
+  padding-top: 10rem;
+}
+
+.footer-items section:first-child {
+  padding-left: 6rem;
+  padding-top: 13rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footSectLink {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  margin-bottom: 0.5rem;
+  transition: .3s ease-in-out;
+}
+
+.footSectLink:hover {
+  color: #a2a2a2;
+}
+
+.sectMarg {
+  margin-bottom: 4rem;
+}
+
+.sectMarg1 {
+  margin-bottom: 6.8rem;
+}
+
+.row {
+  --bs-gutter-x: 0 !important;
 }

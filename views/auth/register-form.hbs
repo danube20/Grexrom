@@ -1,17 +1,21 @@
-<div class="container">
-    <form action="/register" method="POST">
-        <div class="mb-3">
-            <label for="emailInput" class="form-label">Email address</label>
-            <input required type="email" class="form-control" id="emailInput" name="email">
-        </div>
-        <div class="mb-3">
-            <label for="usernameInput" class="form-label">Username</label>
-            <input required type="text" class="form-control" id="usernameInput" name="username">
-        </div>
-        <div class="mb-3">
-            <label for="pwdInput" class="form-label">Password</label>
-            <input required type="password" class="form-control" id="pwdInput" name="userPassword">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+<div class="bg-navbar"></div>
+<div class="container loginForm">
+    <div class="container">
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <div class="mb-3">
+                <label for="emailInput" class="form-label">Email address</label>
+                <input required type="email" class="form-control" id="emailInput" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="usernameInput" class="form-label">Username</label>
+                <input required type="text" class="form-control" id="usernameInput" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="pwdInput" class="form-label">Password</label>
+                <input required type="password" class="form-control" id="pwdInput" name="userPassword">
+            </div>
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+        </form>
+    </div>
 </div>

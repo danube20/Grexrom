@@ -35,8 +35,6 @@ router.get('/', (req, res, next) => {
 // ARTWORKS LIST
 router.get("/artworks", (req, res, next) => {
 
-    // /artworks?page=3
-
     const { page } = req.query
 
     switch (page) {
