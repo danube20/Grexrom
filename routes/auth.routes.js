@@ -46,6 +46,7 @@ router.post("/login", (req, res, next) => {
                 return
             } else {
                 req.session.currentUser = user
+                req.app.locals.isLogged = true
                 res.redirect("/")
             }
         })
@@ -53,6 +54,7 @@ router.post("/login", (req, res, next) => {
 })
 
 router.post('/logout', (req, res) => {
+    req.app.locals.isLogged = false
     req.session.destroy(() => res.redirect('/'))
 })
 

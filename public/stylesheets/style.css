@@ -1,24 +1,35 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  /* background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.25) 200%);
-  background-blend-mode: multiply; */
+}
+
+.displayFlex {
+  display: flex;
 }
 
 /* NAVBAR */
 
-.navBtn {
+/* .navBtn {
   background: transparent;
   border: none;
-}
+} */
 
 .navbar {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
-.navbar a,
-.navBtn {
+.navbar-nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar a {
   font-size: 1.3em;
+}
+
+.navBtn {
+  font-size: 1.2em;
 }
 
 .navbar-brand {
@@ -26,11 +37,19 @@ body {
   padding-bottom: 0.5rem;
 }
 
+.navbarRight {
+  display: flex;
+}
+
 /* CARROUSEL PAGE */
+.carrouselBody {
+  background-color: #232628;
+}
+
 .carrimg {
-  height: 93.5vh;
-  object-fit: contain;
-  border-radius: 5px;
+  height: 89.5vh;
+  object-fit: cover;
+  object-position: center;
 }
 
 /* INDEX PAGE */
@@ -40,11 +59,47 @@ body {
 
 .card {
   margin: 1rem 1rem;
+  border-radius: 10px;
 }
 
 .card img {
-  height: 250px;
-  object-fit: contain;
+  height: 350px;
+  width: 288px;
+  margin-left: -13px;
+  margin-top: -1px;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 10px 10px 0 0;
+}
+
+.btnArtInfo {
+  text-decoration: none;
+  color: #0dcaf0;
+  padding: 0.6rem 1rem;
+  border: 1px solid #0dcaf0;
+  border-radius: 5px;
+  transition: .2s ease-in-out;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.card-body {
+  margin-bottom: 4rem;
+  color: white;
+}
+
+.btnArtInfo:hover {
+  color: #737373;
+  background-color: #84e7fa;
+}
+
+.indexBg {
+  background-color: #9b9b9b;
+}
+
+.bg-card-color {
+  background-color: #737373;
 }
 
 /* EVENT PAGE MAP */

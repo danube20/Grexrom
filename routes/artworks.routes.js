@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
             const filteredArtwoksInfo = artwoksInfo.map(artwork => {
                 const info = {
                     id: artwork.data.objectID,
-                    image: artwork.data.primaryImageSmall,
+                    image: artwork.data.primaryImage,
                     title: artwork.data.title
                 }
                 return info
@@ -134,12 +134,17 @@ router.post('/artwork/:id', (req, res, next) => {
 
 router.post('/artwork/:id/favorite', isLoggedIn, (req, res, next) => {
     const { id } = req.params
-    const { _id: userId } = req.session.currentUser
+    const { _id: userId, username } = req.session.currentUser
 
-    User
-        .findByIdAndUpdate(userId, { $push: { favs: id } })
-        .then(() => res.redirect(`/artwork/${id}`))
-        .catch(error => next(error))
+    if (!req.session.currentUser.favs.includes(id)) {
+        User
+            .findByIdAndUpdate(userId, { $push: { favs: id } })
+            .then(() => res.redirect(`/profile/${username}`))
+            .catch(error => next(error))
+    }
+    else {
+        res.redirect(`/profile/${username}`)
+    }
 })
 
 // ARTWORK EVENT

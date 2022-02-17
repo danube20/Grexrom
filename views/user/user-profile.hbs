@@ -1,4 +1,4 @@
-{{#with data.users}}
+{{#with user}}
 <img src="{{imgUrl}}" alt="{{username}}'s profile image">
 <h1>{{username}}'s profile</h1>
 
@@ -9,6 +9,7 @@
 <a class="btn btn-primary" href="/profile/{{username}}/edit-info">EDIT PROFILE</a>
 {{/if}}
 {{/with}}
+
 <div>
     <h3>Favorites artworks:</h3>
     <div class="row justify-content-center">

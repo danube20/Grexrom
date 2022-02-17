@@ -19,33 +19,41 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
 router.get('/profile/:username', isLoggedIn, (req, res, next) => {
     const { username } = req.params
 
-    const data = {}
+    let data = null
     if (isOwned(username, req.session.currentUser.username) || isAdmin(req.session.currentUser) || isUser(req.session.currentUser)) {
         User
             .findOne({ username })
-            .then(users => {
-                data.users = users
-                return users.favs
+            .then(user => {
+                data = user
+                return user?.favs
             })
             .then(artworks => {
-                const idsArray = artworks
-                const artworksPromises = idsArray.map(id => API.getSingleArt(id))
+                if (artworks) {
+                    const idsArray = artworks
+                    const artworksPromises = idsArray.map(id => API.getSingleArt(id))
 
-                return Promise.all(artworksPromises)
+                    return Promise.all(artworksPromises)
+                }
             })
             .then(artworksInfo => {
-                const filteredArtworksInfo = artworksInfo.map(artwork => {
-                    const info = {
-                        id: artwork.data.objectID,
-                        image: artwork.data.primaryImageSmall,
-                        title: artwork.data.title,
-                        period: artwork.data.period
-                    }
-                    return info
-                })
+                let filteredArtworksInfo
+                if (artworksInfo) {
+                    filteredArtworksInfo = artworksInfo.map(artwork => {
+                        const info = {
+                            id: artwork.data.objectID,
+                            image: artwork.data.primaryImageSmall,
+                            title: artwork.data.title,
+                            period: artwork.data.period
+                        }
+                        return info
+                    })
+                }
+                // si el username de req.params coincide con el del current user,
+                // que renderice la vista, si no, que vaya a login
+                // para esto podeis hacer un util por ejemplo
                 !data ? res.render('user/user-not-found') : res.render('user/user-profile', {
                     filteredArtworksInfo,
-                    data,
+                    user: data,
                     isOwned: isOwned(username, req.session.currentUser.username),
                     isAdmin: isAdmin(req.session.currentUser)
                 })

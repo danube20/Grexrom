@@ -1,23 +1,25 @@
-<div class="index-container">
-    <div class="row justify-content-center">
-        {{#each filteredArtworksInfo}}
-        <div class="card col-md-3" style="width: 18rem;">
-            <img src="{{image}}" class="card-img-top" alt="{{title}}">
-            <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-text">{{period}}</p>
-                <a href="/artwork/{{id}}" class="btn btn-primary">Artwork info</a>
+<body class="indexBg">
+    <div class="index-container">
+        <div class="row justify-content-center">
+            {{#each filteredArtworksInfo}}
+            <div class="card col-md-3 bg-card-color" style="width: 18rem;">
+                <img src="{{image}}" class="card-img-top" alt="{{title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{period}}</p>
+                </div>
+                <a href="/artwork/{{id}}" class="btnArtInfo">Artwork info</a>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
     </div>
-</div>
 
-<p class="d-none" id="page">{{page}}</p>
+    <p class="d-none" id="page">{{page}}</p>
 
-<div class="prevNext">
-    <button class="btn btn-dark" id="previousPage">Previous</button>
-    <button class="btn btn-dark" id="nextPage">Next</button>
-</div>
+    <div class="prevNext">
+        <button class="btn btn-dark" id="previousPage">Previous</button>
+        <button class="btn btn-dark" id="nextPage">Next</button>
+    </div>
 
-<script src="/js/changePageDOM.js"></script>
+    <script src="/js/changePageDOM.js"></script>
+</body>
