@@ -12,6 +12,11 @@
   z-index: 1;
 }
 
+/* LOGIN AND REGISTER */
+.loginForm {
+  padding-top: 8rem;
+}
+
 /* NAVBAR */
 
 .navbar {
@@ -103,7 +108,7 @@
 
 .indexBg {
   background-color: #9b9b9b;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .bg-card-color {
