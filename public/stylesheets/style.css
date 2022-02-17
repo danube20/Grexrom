@@ -1,21 +1,26 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
+/* body {} */
 
 .displayFlex {
   display: flex;
 }
 
-/* NAVBAR */
+.bg-navbar {
+  background-color: #212529;
+  height: 5rem;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
 
-/* .navBtn {
-  background: transparent;
-  border: none;
-} */
+/* NAVBAR */
 
 .navbar {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 .navbar-nav {
@@ -47,7 +52,7 @@ body {
 }
 
 .carrimg {
-  height: 89.5vh;
+  height: 100vh;
   object-fit: cover;
   object-position: center;
 }
@@ -55,6 +60,7 @@ body {
 /* INDEX PAGE */
 .index-container {
   margin: 0 auto;
+  padding-top: 8rem;
 }
 
 .card {
@@ -84,22 +90,49 @@ body {
   right: 10px;
 }
 
-.card-body {
-  margin-bottom: 4rem;
-  color: white;
-}
 
 .btnArtInfo:hover {
   color: #737373;
   background-color: #84e7fa;
 }
 
+.card-body {
+  margin-bottom: 4rem;
+  color: white;
+}
+
 .indexBg {
   background-color: #9b9b9b;
+  overflow-x: hidden;
 }
 
 .bg-card-color {
   background-color: #737373;
+}
+
+.prevNext {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+  padding-right: 1.8rem;
+}
+
+.prevNext button {
+  background-color: #212529;
+  color: white;
+  padding: 0.6rem 1rem;
+  margin-left: 1.8rem;
+  font-size: 1.3em;
+  width: 6.5rem;
+  border: 1px solid #212529;
+  border-radius: 5px;
+  transition: .2s ease-in;
+}
+
+.prevNext button:hover {
+  background-color: #737373;
+  color: white;
+  border-color: #737373;
 }
 
 /* EVENT PAGE MAP */
@@ -133,5 +166,25 @@ body {
 
 /* ARTWORK INFO */
 .infoImg {
-  height: 250px;
+  height: 550px;
+}
+
+.artwork-info {
+  padding-top: 6rem;
+}
+
+.artworkDesc {
+  display: flex;
+}
+
+.side-text {
+  margin-left: 4rem;
+}
+
+.side-text button {
+  margin-top: 5rem;
+}
+
+.side-text h4 {
+  color: gray;
 }

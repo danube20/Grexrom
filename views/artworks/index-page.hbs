@@ -1,4 +1,5 @@
 <body class="indexBg">
+    <div class="bg-navbar"></div>
     <div class="index-container">
         <div class="row justify-content-center">
             {{#each filteredArtworksInfo}}
@@ -17,8 +18,8 @@
     <p class="d-none" id="page">{{page}}</p>
 
     <div class="prevNext">
-        <button class="btn btn-dark" id="previousPage">Previous</button>
-        <button class="btn btn-dark" id="nextPage">Next</button>
+        <button id="previousPage">Previous</button>
+        <button id="nextPage">Next</button>
     </div>
 
     <script src="/js/changePageDOM.js"></script>
