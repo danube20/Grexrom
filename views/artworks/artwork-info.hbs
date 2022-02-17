@@ -1,36 +1,44 @@
-<img src="{{primaryImageSmall}}" class="infoImg" alt="{{title}}">
-<h3>Name: {{objectName}}</h3>
-<h3>Title: {{title}}</h3>
-<h3>Period: {{period}}</h3>
-<h3>Object date: {{objectDate}}</h3>
-<h3>Dimensions: {{dimensions}}</h3>
+<div class="bg-navbar"></div>
+<div class="artwork-info container">
+    <div class="artworkDesc">
+        <img src="{{primaryImageSmall}}" class="infoImg" alt="{{title}}">
+        <div class="side-text">
+            <h1>{{title}}</h1>
+            <h4>{{objectDate}}</h4>
+            <p><span>Dimensions:</span> {{dimensions}}</p>
+            <p><span>Name:</span> {{objectName}}</p>
+            <p><span>Period:</span> {{period}}</p>
 
-<form action="/artwork/{{objectID}}/favorite" method="post">
-    <button type="submit" class="btn btn-primary">Add to favorite</button>
-</form>
+            <form action="/artwork/{{objectID}}/favorite" method="post">
+                <button type="submit" class="btn btn-primary">Add to favorite</button>
+            </form>
+        </div>
 
-<form action="/artwork/{{objectID}}" method="POST">
-    <label for="commentBox">Añadir comentario:</label><br>
-    <textarea name="text" id="commentBox" cols="30" rows="10" placeholder="Add new commentary"></textarea>
+    </div>
+
+
+    <form action="/artwork/{{objectID}}" method="POST">
+        <label for="commentBox">Añadir comentario:</label><br>
+        <textarea name="text" id="commentBox" cols="30" rows="10" placeholder="Add new commentary"></textarea>
+        <br>
+        <label for="ratingSelect">Let a rating</label>
+        <input type="number" name="rating" min="1" max="5">
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
     <br>
-    <label for="ratingSelect">Let a rating</label>
-    <input type="number" name="rating" min="1" max="5">
-    <br>
-    <button type="submit">Submit</button>
-</form>
-
-<br>
-{{#if objectID}}
-{{#each comments}}
-<hr>
-<p>{{user.username}}</p>
-<p>{{date}}</p>
-<p>{{rating}}</p>
-<p>{{text}}</p>
-<hr>
-{{/each}}
-{{/if}}
-
+    {{#if objectID}}
+    {{#each comments}}
+    <hr>
+    <p>{{user.username}}</p>
+    <p>{{date}}</p>
+    <p>{{rating}}</p>
+    <p>{{text}}</p>
+    <hr>
+    {{/each}}
+    {{/if}}
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="/js/APIHandler.js"></script>
