@@ -193,3 +193,22 @@
 .side-text h4 {
   color: gray;
 }
+
+/* FOOTER */
+
+.pie {
+  padding: 40px 0 0 0;
+  background-color: #232628;
+  text-align: center;
+  position: static
+
+}
+
+.footer-items {
+  margin-top: 40px;
+  padding: 40px 0 0 0;
+  background-color: #737373;
+  text-align: center;
+  position: static;
+
+}
