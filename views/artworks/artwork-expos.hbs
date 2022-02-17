@@ -1,0 +1,74 @@
+<h1>Next exclusive expositions</h1>
+
+
+{{#with filteredArtwoksInfo.[0]}}
+<div class="floatRight">
+    <img class="expoImg0" src="{{image}}" alt="{{title}}">
+    <div class="sideText">
+        <p>Title: {{title}}</p>
+        <p>Period: {{period}}</p>
+        <p>Object name: {{objectName}}</p>
+        <p>Date: {{objectDate}}</p>
+        <p>Dimensions: {{dimensions}}</p>
+    </div>
+</div>
+<hr>
+{{/with}}
+{{#with filteredArtwoksInfo.[1]}}
+<div class="floatLeft">
+    <img class="expoImg" src="{{image}}" alt="{{title}}">
+    <div class="sideText">
+        <p>Title: {{title}}</p>
+        <p>Period: {{period}}</p>
+        <p>Object name: {{objectName}}</p>
+        <p>Date: {{objectDate}}</p>
+        <p>Dimensions: {{dimensions}}</p>
+    </div>
+</div>
+<hr>
+{{/with}}
+{{#with filteredArtwoksInfo.[2]}}
+<div class="floatRight">
+    <img class="expoImg" src="{{image}}" alt="{{title}}">
+    <div class="sideText">
+        <p>Title: {{title}}</p>
+        <p>Period: {{period}}</p>
+        <p>Object name: {{objectName}}</p>
+        <p>Date: {{objectDate}}</p>
+        <p>Dimensions: {{dimensions}}</p>
+    </div>
+</div>
+<hr>
+{{/with}}
+{{#with filteredArtwoksInfo.[3]}}
+<div class="floatLeft">
+    <img class="expoImg" src="{{image}}" alt="{{title}}">
+    <div class="sideText">
+        <p>Title: {{title}}</p>
+        <p>Period: {{period}}</p>
+        <p>Object name: {{objectName}}</p>
+        <p>Date: {{objectDate}}</p>
+        <p>Dimensions: {{dimensions}}</p>
+    </div>
+</div>
+<hr>
+{{/with}}
+{{#with filteredArtwoksInfo.[4]}}
+<div class="floatRight">
+    <img class="expoImg" src="{{image}}" alt="{{title}}">
+    <div class="sideText">
+        <p>Title: {{title}}</p>
+        <p>Period: {{period}}</p>
+        <p>Object name: {{objectName}}</p>
+        <p>Date: {{objectDate}}</p>
+        <p>Dimensions: {{dimensions}}</p>
+    </div>
+</div>
+<hr>
+{{/with}}
+
+<div id="myMap"></div>
+
+<script src="js/maps-api.js"></script>
+<script
+    src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ4erZCuNdYTXe_stAAsQWPQj7dJRioJ0&callback=initMap'></script>

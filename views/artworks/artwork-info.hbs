@@ -1,9 +1,13 @@
-<img src="{{primaryImageSmall}}" class="card-img-top" alt="{{data.title}}">
+<img src="{{primaryImageSmall}}" class="infoImg" alt="{{title}}">
 <h3>Name: {{objectName}}</h3>
 <h3>Title: {{title}}</h3>
 <h3>Period: {{period}}</h3>
 <h3>Object date: {{objectDate}}</h3>
 <h3>Dimensions: {{dimensions}}</h3>
+
+<form action="/artwork/{{objectID}}/favorite" method="post">
+    <button type="submit" class="btn btn-primary">Add to favorite</button>
+</form>
 
 <form action="/artwork/{{objectID}}" method="POST">
     <label for="commentBox">Añadir comentario:</label><br>

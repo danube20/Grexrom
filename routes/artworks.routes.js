@@ -3,6 +3,7 @@ const APIHandler = require("../services/APIHandler")
 const API = new APIHandler()
 const { isLoggedIn, checkRole } = require('../middlewere/route-guard')
 const Comments = require('../models/Comment.model')
+const User = require('../models/User.model')
 
 let prevPage = 0
 let nextPage = 0
@@ -44,32 +45,32 @@ router.get("/artworks", (req, res, next) => {
             nextPage = 12
             break;
         case '2':
-            prevPage = 12
-            nextPage = 24
+            prevPage = 13
+            nextPage = 12
             break;
         case '3':
-            prevPage = 24
-            nextPage = 36
+            prevPage = 26
+            nextPage = 12
             break;
         case '4':
-            prevPage = 36
-            nextPage = 48
+            prevPage = 39
+            nextPage = 12
             break;
         case '5':
-            prevPage = 48
-            nextPage = 60
+            prevPage = 52
+            nextPage = 12
             break;
         case '6':
-            prevPage = 60
-            nextPage = 72
+            prevPage = 65
+            nextPage = 12
             break;
         case '7':
-            prevPage = 72
-            nextPage = 84
+            prevPage = 78
+            nextPage = 12
             break;
         case '8':
-            prevPage = 84
-            nextPage = 96
+            prevPage = 91
+            nextPage = 12
             break;
         default:
             break;
@@ -84,8 +85,8 @@ router.get("/artworks", (req, res, next) => {
 
             return Promise.all(artworksPromises)
         })
-        .then(artwoksInfo => {
-            const filteredArtwoksInfo = artwoksInfo.map(artwork => {
+        .then(artworksInfo => {
+            const filteredArtworksInfo = artworksInfo.map(artwork => {
                 const info = {
                     id: artwork.data.objectID,
                     image: artwork.data.primaryImageSmall,
@@ -95,7 +96,7 @@ router.get("/artworks", (req, res, next) => {
                 return info
             })
 
-            res.render('artworks/index-page', { filteredArtwoksInfo })
+            res.render('artworks/index-page', { filteredArtworksInfo, page })
         })
         .catch(err => next(err))
 })
@@ -131,30 +132,42 @@ router.post('/artwork/:id', (req, res, next) => {
         .catch(error => next(error))
 })
 
-// CHANGE NUMBER OF SHOWN ARTWORKS
+router.post('/artwork/:id/favorite', isLoggedIn, (req, res, next) => {
+    const { id } = req.params
+    const { _id: userId } = req.session.currentUser
 
-// const prevBtn = document.getElementById('previousPage')
-// const nextBtn = document.getElementById('nextPage')
+    User
+        .findByIdAndUpdate(userId, { $push: { favs: id } })
+        .then(() => res.redirect(`/artwork/${id}`))
+        .catch(error => next(error))
+})
 
-// prevBtn.addEventListener('click', event => {
-//     // if (prevPage >= 24) {
-//     //     prevPage -= 12
-//     //     nextPage -= 12
-//     // }
-//     // else {
-//     //     return
-//     // }
-//     console.log('hola prev');
-// })
-// nextBtn.addEventListener('click', event => {
-//     // if (nextPage >= 0 && nextPage <= 96) {
-//     //     nextPage += 12
-//     //     prevPage += 12
-//     // }
-//     // else {
-//     //     return
-//     // }
-//     console.log('hola next');
-// })
+// ARTWORK EVENT
+router.get('/expos', isLoggedIn, (req, res, next) => {
 
+    API
+        .getExpoArt()
+        .then(response => {
+            const idsArray = response.data.objectIDs
+            const artworksPromises = idsArray.map(id => API.getSingleArt(id))
+
+            return Promise.all(artworksPromises)
+        })
+        .then(artwoksInfo => {
+            const filteredArtwoksInfo = artwoksInfo.map(artwork => {
+                const info = {
+                    image: artwork.data.primaryImage,
+                    title: artwork.data.title,
+                    period: artwork.data.period,
+                    objectName: artwork.data.objectName,
+                    objectDate: artwork.data.objectDate,
+                    dimensions: artwork.data.dimensions
+                }
+                return info
+            })
+
+            res.render('artworks/artwork-expos', { filteredArtwoksInfo })
+        })
+        .catch(err => next(err))
+})
 module.exports = router;

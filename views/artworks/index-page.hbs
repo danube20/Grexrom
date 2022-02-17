@@ -1,26 +1,23 @@
 <div class="index-container">
     <div class="row justify-content-center">
-        {{#each filteredArtwoksInfo}}
+        {{#each filteredArtworksInfo}}
         <div class="card col-md-3" style="width: 18rem;">
-            <p>{{id}}</p>
             <img src="{{image}}" class="card-img-top" alt="{{title}}">
             <div class="card-body">
                 <h5 class="card-title">{{title}}</h5>
                 <p class="card-text">{{period}}</p>
-                <a href="/artwork/{{id}}" class="btn btn-primary">Go somewhere</a>
+                <a href="/artwork/{{id}}" class="btn btn-primary">Artwork info</a>
             </div>
         </div>
         {{/each}}
     </div>
 </div>
 
-{{!-- <div class="prevNext">
-    <form action="/artworks{{}}" method="GET">
-        <button class="btn btn-dark" id="previousPage">Previous</button>
-    </form>
+<p class="d-none" id="page">{{page}}</p>
+
+<div class="prevNext">
+    <button class="btn btn-dark" id="previousPage">Previous</button>
     <button class="btn btn-dark" id="nextPage">Next</button>
-</div> --}}
+</div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/js/APIHandler.js"></script>
+<script src="/js/changePageDOM.js"></script>

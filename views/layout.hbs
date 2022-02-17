@@ -37,6 +37,9 @@
                   <a class="nav-link" aria-current="page" href="/profile">Profile</a>
                </li>
                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/expos">Expositions</a>
+               </li>
+               <li class="nav-item">
                   <form action="/logout" method="POST">
                      <button class="navBtn nav-link">Logout</button>
                   </form>
@@ -45,12 +48,10 @@
          </div>
       </div>
    </nav>
-
-   {{{body}}}
+   <div class="container">
+      {{{body}}}
+   </div>
    <!-- JavaScript Bundle with Popper -->
-   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-   <script src="/js/APIHandler.js"></script>
-   <script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -16,6 +16,9 @@ class APIHandler {
     getMoreImportant() {
         return this.axiosApp.get('/search?departmentId=13&hasImages=true&isHighlight=true&q=ac')
     }
+    getExpoArt() {
+        return this.axiosApp.get('/search?departmentId=13&hasImages=true&isHighlight=true&q=ab')
+    }
 }
 
 module.exports = APIHandler

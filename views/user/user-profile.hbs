@@ -1,8 +1,31 @@
+{{#with data.users}}
 <img src="{{imgUrl}}" alt="{{username}}'s profile image">
 <h1>{{username}}'s profile</h1>
 
 <p>Name: {{fullName}}</p>
 <p>Username: {{username}}</p>
 <p>Biography: {{biography}}</p>
-
-<a href="/profile/{{username}}/edit-info">EDIT PROFILE</a>
+{{#if ../isOwned}}
+<a class="btn btn-primary" href="/profile/{{username}}/edit-info">EDIT PROFILE</a>
+{{/if}}
+{{/with}}
+<div>
+    <h3>Favorites artworks:</h3>
+    <div class="row justify-content-center">
+        {{#each filteredArtworksInfo}}
+        <div class="card col-md-3" style="width: 18rem;">
+            <img src="{{image}}" class="card-img-top" alt="{{title}}">
+            <div class="card-body">
+                <h5 class="card-title">{{title}}</h5>
+                <p class="card-text">{{period}}</p>
+                <a href="/artwork/{{id}}" class="btn btn-primary">Artwork info</a>
+                {{#if ../isOwned}}
+                <form action="/artwork/{{id}}/delete" method="post">
+                    <button type="submit" class="btn btn-danger">Delete from favorites</button>
+                </form>
+                {{/if}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

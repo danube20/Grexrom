@@ -46,3 +46,37 @@ body {
   height: 250px;
   object-fit: contain;
 }
+
+/* EVENT PAGE MAP */
+.expoImg0 {
+  height: 500px;
+  width: 500px;
+  object-fit: cover;
+}
+
+.expoImg {
+  height: 500px;
+  width: 400px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.floatRight {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.floatLeft {
+  display: flex;
+}
+
+#myMap {
+  height: 450px;
+}
+
+/* ARTWORK INFO */
+.infoImg {
+  height: 250px;
+}
