@@ -1,4 +1,11 @@
-/* body {} */
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;600;700&display=swap');
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
 
 .displayFlex {
   display: flex;
@@ -29,7 +36,7 @@
 /* NAVBAR */
 
 .navbar {
-  padding-top: 1rem;
+  padding-top: 0;
   padding-bottom: 1rem;
   background-color: transparent;
   position: fixed;
@@ -53,8 +60,9 @@
 }
 
 .navbar-brand {
-  font-size: 1.7rem !important;
+  font-size: 2.5em !important;
   padding-bottom: 0.5rem;
+  font-family: 'El Messiri', sans-serif;
 }
 
 .navbarRight {
@@ -156,6 +164,7 @@
 
 .artExpoHead {
   padding-top: 6rem;
+  text-align: center;
 }
 
 .artExpoHead h1 {
@@ -176,13 +185,19 @@
   padding: 0 3rem;
 }
 
+.sideText h2 {
+  margin-top: 6rem;
+}
+
 .sideText h4 {
   color: #727272;
+  margin-bottom: 4rem;
 }
 
 .sideText p {
   font-weight: 300;
   color: white;
+  margin: 0;
 }
 
 .sideText span {
@@ -218,6 +233,7 @@
   height: 500px;
   width: 500px;
   object-fit: cover;
+  border-radius: 15px;
 }
 
 .expoImg {
@@ -225,6 +241,7 @@
   width: 400px;
   object-fit: cover;
   object-position: center;
+  border-radius: 15px;
 }
 
 #myMap {
@@ -264,10 +281,12 @@
 
 .artworkDesc {
   display: flex;
+  margin-top: 3.5rem;
   margin-bottom: 8rem;
 }
 
 .side-text {
+  padding-top: 4rem;
   margin-left: 4rem;
 }
 
@@ -410,9 +429,8 @@ textarea {
 
 .primaryInfo {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 824px;
+  min-width: 824px;
 }
 
 .profileHeader {
@@ -423,19 +441,19 @@ textarea {
 }
 
 .profileHeader img {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   border-radius: 40px;
   object-fit: cover;
   margin-right: 1rem;
 }
 
-.personalInfo h1,
-.personalInfo p {
-  margin: 0;
+.personalInfo h1 {
+  margin-top: 1.5rem;
 }
 
 .personalInfo p {
+  margin: 0;
   color: #999999;
   font-weight: 300;
 }
@@ -463,6 +481,10 @@ textarea {
 
 .deleteFavBtn:hover {
   background-color: #e16470;
+}
+
+.editProfileForm {
+  padding: 11.6rem 0;
 }
 
 /* FOOTER */

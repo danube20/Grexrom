@@ -3,10 +3,12 @@
 {{#with user}}
 <div class="profileHeader">
     <div class="primaryInfo">
-        <img src="{{imgUrl}}" alt="{{username}}'s profile image">
-        <div class="personalInfo">
-            <h1>{{fullName}}</h1>
-            <p>{{username}}</p>
+        <div class="displayFlex">
+            <img src="{{imgUrl}}" alt="{{username}}'s profile image">
+            <div class="personalInfo">
+                <h1>{{fullName}}</h1>
+                <p>{{username}}</p>
+            </div>
         </div>
         {{#if ../isOwned}}
         <div class="editProfileBtn">
