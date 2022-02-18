@@ -22,7 +22,7 @@ router.post("/register", (req, res, next) => {
                 to: email,
                 subject: 'Successful register in Grexrom!',
                 text: 'Thanks for registering in Grexrom Museum!',
-                html: '<b>You are now part of the family of the Grexrom Museum!</b><br>Now you have full access to our museum. You can see all the fabulous artworks and, <i>just for being member of our museum</i>, you will have and anticipated email with the purchase link to get a ticket for the next exhibition.<br><b>The Grexrom Museum Team.</b><br><br><a href="http://localhost:3000">Grexrom Museum</a>'
+                html: '<b>You are now part of the family of the Grexrom Museum!</b><br>Now you have full access to our museum. You can see all the fabulous artworks and, <i>just for being member of our museum</i>, you will have and anticipated email with the purchase link to get a ticket for the next exhibition.<br><b>The Grexrom Museum Team.</b><br><br><a href="https://grexrom.herokuapp.com/">Grexrom Museum</a>'
             })
         })
         .catch(error => next(error))
