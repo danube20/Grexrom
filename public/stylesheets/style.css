@@ -154,8 +154,22 @@
   background-color: #9b9b9b;
 }
 
-.artworksExpo {
-  margin-top: 4rem;
+.artExpoHead {
+  padding-top: 6rem;
+}
+
+.artExpoHead h1 {
+  margin: 0;
+}
+
+.artExpoHead a {
+  text-decoration: none;
+  color: #e6e6e6;
+  transition: .1s ease-in;
+}
+
+.artExpoHead a:hover {
+  color: #84e7fa;
 }
 
 .sideText {
@@ -215,6 +229,27 @@
 
 #myMap {
   height: 600px;
+  width: 800px;
+}
+
+#artExpoInfo {
+  display: flex;
+}
+
+.artExpoInfoText {
+  padding: 3rem;
+}
+
+.artExpoInfoText p {
+  color: white;
+  font-weight: 300;
+  font-size: 1.1em;
+}
+
+.artExpoInfoText p span {
+  color: black;
+  font-weight: 500;
+  font-size: 1.3em;
 }
 
 /* ARTWORK INFO */
@@ -229,6 +264,7 @@
 
 .artworkDesc {
   display: flex;
+  margin-bottom: 8rem;
 }
 
 .side-text {
@@ -237,10 +273,196 @@
 
 .side-text button {
   margin-top: 5rem;
+  text-decoration: none;
+  color: #0dcaf0;
+  background-color: transparent;
+  padding: 0.6rem 1rem;
+  border: 1px solid #0dcaf0;
+  border-radius: 5px;
+  transition: .2s ease-in-out;
+}
+
+
+.side-text button:hover {
+  color: white;
+  background-color: #84e7fa;
+  border: 1px solid #0dcaf0;
 }
 
 .side-text h4 {
   color: gray;
+}
+
+.side-text ul>li {
+  font-size: 1.2em;
+}
+
+.side-text ul>li>span {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.numberComments {
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.commentHead {
+  display: flex;
+  align-items: center;
+}
+
+.commentHead img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 1.6rem 1rem 10px;
+}
+
+.commentHead p {
+  font-size: 1.3em;
+}
+
+.commentNameDate {
+  margin-right: 2rem;
+}
+
+.commentNameDate a {
+  text-decoration: none;
+  color: black;
+  text-transform: capitalize;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: .2s ease-out;
+}
+
+.commentNameDate a:hover {
+  color: #727272;
+}
+
+.commentNameDate p {
+  font-size: 15px;
+  color: #999999;
+  font-weight: 100;
+}
+
+.commentText {
+  font-size: 1.4em;
+  font-weight: 300;
+}
+
+.commentSection {
+  margin: 5rem 0;
+}
+
+.leaveComment {
+  margin: 1rem 0;
+  font-size: 1.3em;
+  font-weight: 700;
+  text-align: center;
+}
+
+textarea {
+  margin-top: 1rem;
+  resize: none;
+  width: 80%;
+  height: 200px;
+  outline: 0;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+}
+
+.ratingComment {
+  margin-top: 1rem;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #b3b3b3;
+  outline: 0;
+}
+
+.submitBtnArtInfo {
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #0dcaf0;
+  background-color: transparent;
+  padding: 0.6rem 1rem;
+  border: 1px solid #0dcaf0;
+  border-radius: 5px;
+  transition: .2s ease-in-out;
+}
+
+
+.submitBtnArtInfo:hover {
+  color: white;
+  background-color: #84e7fa;
+}
+
+.artInfoPage {
+  width: 30%;
+  border: 2px solid black;
+  margin: 0 auto;
+}
+
+/* PROFILE */
+
+.primaryInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 824px;
+}
+
+.profileHeader {
+  padding-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileHeader img {
+  height: 150px;
+  width: 150px;
+  border-radius: 40px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.personalInfo h1,
+.personalInfo p {
+  margin: 0;
+}
+
+.personalInfo p {
+  color: #999999;
+  font-weight: 300;
+}
+
+.editProfileBtn {
+  margin-left: 8rem;
+}
+
+.favoriteArts {
+  margin-top: 6rem;
+}
+
+.deleteFavBtn {
+  color: white;
+  width: 7rem;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  padding: 0.7rem 1rem;
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  transition: .2s ease-in-out;
+}
+
+.deleteFavBtn:hover {
+  background-color: #e16470;
 }
 
 /* FOOTER */
@@ -253,6 +475,7 @@
 
 .pie nav {
   margin: 0 0 1rem 0;
+  padding-top: 15px;
 }
 
 .pie nav a {

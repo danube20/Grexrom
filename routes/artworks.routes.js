@@ -113,7 +113,17 @@ router.get('/artwork/:id', isLoggedIn, (req, res, next) => {
             return Comments.find({ artwork: id }).populate('user')
         })
         .then(comments => {
-            artwork.comments = comments
+            const filteredComment = comments.map(elm => {
+                const info = {
+                    user: elm.user,
+                    date: elm.date.toString().slice(4, 21),
+                    rating: elm.rating,
+                    text: elm.text
+                }
+                return info
+            })
+            artwork.comments = filteredComment
+            artwork.commentLength = comments.length
             res.render('artworks/artwork-info', artwork)
         })
         .catch(error => next(error))

@@ -1,7 +1,10 @@
 <body class="artworkExpoBody">
     <div class="bg-navbar"></div>
 
-    <h1>Next exclusive expositions</h1>
+    <div class="artExpoHead">
+        <h1>Next exclusive expositions</h1>
+        <a href="#artExpoInfo">Click here for location and more info.</a>
+    </div>
 
     <div class="artworksExpo container">
         {{#with filteredArtwoksInfo.[0]}}
@@ -70,8 +73,16 @@
         {{/with}}
     </div>
 
-    <div id="myMap"></div>
+    <div id="artExpoInfo">
+        <div id="myMap"></div>
+        <div class="artExpoInfoText">
+            <p><span>Location:</span> Matadero Madrid, Madrid, Spain</p>
+            <p><span>Subway:</span> Legazpi</p>
+            <p><span>Buses:</span> 123, 22, 79, 6, 18, 78, 148, 8, 45, 62, 156.</p>
+        </div>
+    </div>
 
     <script src="js/maps-api.js"></script>
-    <script src='https://maps.googleapis.com/maps/api/js?key=--API--KEY--&callback=initMap'></script>
+    <script
+        src='https://maps.googleapis.com/maps/api/js?key=AIzaSyAQ4erZCuNdYTXe_stAAsQWPQj7dJRioJ0&callback=initMap'></script>
 </body>

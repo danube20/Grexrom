@@ -5,39 +5,48 @@
         <div class="side-text">
             <h1>{{title}}</h1>
             <h4>{{objectDate}}</h4>
-            <p><span>Dimensions:</span> {{dimensions}}</p>
-            <p><span>Name:</span> {{objectName}}</p>
-            <p><span>Period:</span> {{period}}</p>
+            <ul>
+                <li><span>Dimensions:</span> {{dimensions}}</li>
+                <li><span>Name:</span> {{objectName}}</li>
+                <li><span>Period:</span> {{period}}</li>
+            </ul>
 
             <form action="/artwork/{{objectID}}/favorite" method="post">
                 <button type="submit" class="btn btn-primary">Add to favorite</button>
             </form>
         </div>
-
     </div>
 
-
-    <form action="/artwork/{{objectID}}" method="POST">
-        <label for="commentBox">Añadir comentario:</label><br>
-        <textarea name="text" id="commentBox" cols="30" rows="10" placeholder="Add new commentary"></textarea>
-        <br>
-        <label for="ratingSelect">Let a rating</label>
-        <input type="number" name="rating" min="1" max="5">
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-
-    <br>
     {{#if objectID}}
+    <p class="numberComments">{{commentLength}} comments</p>
+    <hr class="artInfoPage">
     {{#each comments}}
-    <hr>
-    <p>{{user.username}}</p>
-    <p>{{date}}</p>
-    <p>{{rating}}</p>
-    <p>{{text}}</p>
-    <hr>
+    <div class="commentSection">
+        <div class="commentHead">
+            <img src="{{user.imgUrl}}" alt="{{user.username}}'s image profile">
+            <div class="commentNameDate">
+                <a href="/profile/{{user.username}}">{{user.username}}</a>
+                <p>{{date}}</p>
+            </div>
+            <p>{{rating}}</p>
+        </div>
+        <p class="commentText">{{text}}</p>
+    </div>
     {{/each}}
     {{/if}}
+    <br>
+    <form action="/artwork/{{objectID}}" method="POST">
+        <p class="leaveComment">Leave a comment</p>
+        <hr class="artInfoPage">
+        <br>
+        <label for="ratingSelect">Rating: </label>
+        <input required class="ratingComment" type="number" name="rating" min="1" max="5">
+        <br>
+        <textarea required name="text" id="commentBox" cols="30" rows="10" placeholder="Add new commentary"></textarea>
+        <br>
+        <button type="submit" class="submitBtnArtInfo">Submit</button>
+    </form>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
