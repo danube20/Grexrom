@@ -48,14 +48,10 @@ router.get('/profile/:username', isLoggedIn, (req, res, next) => {
                         return info
                     })
                 }
-                // si el username de req.params coincide con el del current user,
-                // que renderice la vista, si no, que vaya a login
-                // para esto podeis hacer un util por ejemplo
                 !data ? res.render('user/user-not-found') : res.render('user/user-profile', {
                     filteredArtworksInfo,
                     user: data,
-                    isOwned: isOwned(username, req.session.currentUser.username),
-                    isAdmin: isAdmin(req.session.currentUser)
+                    isOwned: isOwned(username, req.session.currentUser.username) || isAdmin(req.session.currentUser)
                 })
             })
             .catch(error => next(error))
