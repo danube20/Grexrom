@@ -1,5 +1,7 @@
 # Grexrom
 
+Check the web app ==> https://grexrom.herokuapp.com/
+
 | HTTP Method | URI path                       | Description                                |      Protected |
 | :---         |   :---:                       |          ---:                              |           ---: |
 | GET          | /                             | Render index page and search               |      False     |
