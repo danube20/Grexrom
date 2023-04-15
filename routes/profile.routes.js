@@ -3,7 +3,7 @@ const User = require('../models/User.model')
 const fileUploader = require('../config/cloudinary.config')
 const APIHandler = require("../services/APIHandler")
 const API = new APIHandler()
-const { isAdmin, isOwned, isUser, isLogged } = require('../utils')
+const { isAdmin, isOwned, isUser } = require('../utils')
 const router = require('express').Router()
 
 // USER PROFILE
