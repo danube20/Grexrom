@@ -1,6 +1,6 @@
 # Grexrom
 
-Check the web app ==> https://grexrom.herokuapp.com/
+Check the web app ==> https://grexrom.onrender.com
 
 | HTTP Method | URI path                       | Description                                |      Protected |
 | :---         |   :---:                       |          ---:                              |           ---: |
